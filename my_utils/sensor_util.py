@@ -362,9 +362,8 @@ def export_lidar_csv(csv_file, features, loc_x, loc_y, theta, ms, com):
 
 def export_lidar_mpc_csv(csv_file, features, loc_x, loc_y, theta, ms, com, path, cy):
     # print("Calling: exporting vehicle data (writing into csv file!)")
-    print(path)
     path = np.ndarray.flatten(path)
-    print(path)
+
     if os.path.isfile(csv_file):
         with open(csv_file, 'a', newline='') as file:
             writer = csv.writer(file)
@@ -373,10 +372,7 @@ def export_lidar_mpc_csv(csv_file, features, loc_x, loc_y, theta, ms, com, path,
                 content.extend(path)
                 content.extend(cy)
                 writer.writerows([content])
-                # writer.writerow([item0, item1, item2, item3, loc_x, loc_y, theta, ms, com,
-                #                  path[0], path[1], path[2], path[3], path[4], path[5], path[6], path[7],
-                #                  path[8], path[9], path[10], path[11], path[12], path[13], path[14], path[15],
-                #                  path[16], path[17], cy[0], cy[1], cy[2], cy[3], cy[4], cy[5], cy[6], cy[7], cy[8]])
+
     else:
         with open(csv_file, 'w', newline='') as file:
             writer = csv.writer(file)
@@ -385,10 +381,6 @@ def export_lidar_mpc_csv(csv_file, features, loc_x, loc_y, theta, ms, com, path,
                 content.extend(path)
                 content.extend(cy)
                 writer.writerows([content])
-                # writer.writerow([item0, item1, item2, item3, loc_x, loc_y, theta, ms, com,
-                #                  path[0], path[1], path[2], path[3], path[4], path[5], path[6], path[7],
-                #                  path[8], path[9], path[10], path[11], path[12], path[13], path[14], path[15],
-                #                  path[16], path[17], cy[0], cy[1], cy[2], cy[3], cy[4], cy[5], cy[6], cy[7], cy[8]])
 
 
 def random_waypoint(world, distance=2.0):
@@ -433,9 +425,55 @@ def display_lidar(point_cloud, vehicle, set_dir, lidar_range):
         lidar_data = np.reshape(lidar_data, (-1, 2))
 
         lidar_img_size = (hud[0], hud[1], 3)
+        lidar_img = np.zeros(lidar_img_size, dtype=np.uint8)
+        lidar_img[tuple(lidar_data.T)] = (255, 255, 255)
+
+        cv2.imshow("lidar cam", lidar_img)
+        cv2.waitKey(1)
+
+    except IndexError as ie:
+        print("Lidar: ", ie)
+
+    except Exception as e:
+        print("Lidar Exception: ", e)
+        pass
+
+
+def display_lidar_mpc(point_cloud, vehicle, set_dir, lidar_range, path, cy):
+    try:
+        # hud = np.array([1280, 720])
+        hud = np.array([640, 480])
+
+        # point cloud
+        points = np.frombuffer(point_cloud.raw_data, dtype=np.dtype('f4'))
+        points = np.reshape(points, (int(points.shape[0] / 4), 4))
+
+        # get location information
+        location = vehicle.get_location()
+        loc_x = location.x
+        loc_y = location.y
+
+        # vehicle speed
+        ms, kmh = speed_estimation(vehicle)
+
+        # get transform information
+        degree = vehicle.get_transform().rotation.yaw
+        rad = degree * np.pi / 180
+
+        tag = int(time.time() * 1000)
+        file = "{}/data_{}.csv".format(set_dir, tag)
+        export_lidar_mpc_csv(file, points, loc_x, loc_y, rad, ms, False, path, cy)
+
+        lidar_data = np.array(points[:, :2])
+        lidar_data *= min(hud) / (2.0 * float(lidar_range))
+        lidar_data += (0.5 * hud[0], 0.5 * hud[1])
+        lidar_data = np.fabs(lidar_data)  # pylint: disable=E1111
+        lidar_data = lidar_data.astype(np.int32)
+        lidar_data = np.reshape(lidar_data, (-1, 2))
+
+        lidar_img_size = (hud[0], hud[1], 3)
         lidar_img = np.zeros((lidar_img_size), dtype=np.uint8)
         lidar_img[tuple(lidar_data.T)] = (255, 255, 255)
-        # plt.imsave("{}/{}.png".format(set_dir, tag), lidar_img)
 
         cv2.imshow("lidar cam", lidar_img)
         cv2.waitKey(1)

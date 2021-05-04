@@ -195,11 +195,6 @@ def get_random_course(road_segments_file, noc=4, demo=False, time_analysis=False
     if time_analysis:
         start_time = datetime.now()
 
-    # destination_node_points = np.array([[44, 107.4], [90, 107.4], [140, 107.4], [-5.5, 147.5], [191.7, 147.5],
-    #                                     [20, 189.5], [90, 189.5], [165, 189.5], [-5.5, 215],
-    #                                     [43.9, 215], [134.1, 215], [191.7, 215], [-5.5, 269], [43.9, 269],
-    #                                     [191.7, 269], [20, 304.5], [90, 304.5], [165, 304.5]])
-
     destination_node_points = np.asarray(dic.destination_node_points_town02)
     random_destination = random.choice(destination_node_points)
     start = random.choice(node_names)
@@ -320,11 +315,6 @@ def get_course(road_segments_file, course, noc=4, demo=False, time_analysis=Fals
     # Initializing destinations
     if time_analysis:
         start_time = datetime.now()
-
-    # destination_node_points = np.array([[44, 107.4], [90, 107.4], [140, 107.4], [-5.5, 147.5], [191.7, 147.5],
-    #                                     [20, 189.5], [90, 189.5], [165, 189.5], [-5.5, 215],
-    #                                     [43.9, 215], [134.1, 215], [191.7, 215], [-5.5, 269], [43.9, 269],
-    #                                     [191.7, 269], [20, 304.5], [90, 304.5], [165, 304.5]])
 
     destination_node_points = np.asarray(dic.destination_node_points_town02)
     start_idx = course[0]

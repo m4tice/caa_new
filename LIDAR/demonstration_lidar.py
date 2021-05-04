@@ -32,7 +32,7 @@ from caa_new.GlobalPathPlanning import module_p2
 from caa_new.E2E.module_e2e import E2EController
 from caa_new.MPC import cubic_spline_planner as cubic_spline_planner
 from caa_new.GNSS import module_gnss
-from caa_new.LIDAR.temp_lidar_2 import is_inside_polygon
+from caa_new.LIDAR import module_lidar
 from tensorflow.keras.models import load_model
 
 from queue import Queue
@@ -329,6 +329,7 @@ def calc_ref_trajectory(state, cx, cy, cyaw, ck, sp, dl, pind):
     return xref, ind, dref
 
 
+# Broken
 def check_goal(state, goal, tind, nind):
     # check goal
     dx = state.x - goal[0]
@@ -466,142 +467,14 @@ def mpc_drive(world, vehicle, state, cx, cy, cyaw, ck, sp, dl, target_ind):
     vehicle.apply_control(carla.VehicleControl(throttle=ai, steer=di, brake=0))
 
 
-def display_lidar(point_cloud, vehicle, set_dir, lidar_range, path, cy):
-    # passing_trafficlight(vehicle)
-    try:
-        # hud = np.array([1280, 720])
-        hud = np.array([640, 480])
-
-        # point cloud
-        points = np.frombuffer(point_cloud.raw_data, dtype=np.dtype('f4'))
-        points = np.reshape(points, (int(points.shape[0] / 4), 4))
-
-        # get location information
-        location = vehicle.get_location()
-        loc_x = location.x
-        loc_y = location.y
-
-        # vehicle speed
-        ms, kmh = su.speed_estimation(vehicle)
-
-        # get transform information
-        degree = vehicle.get_transform().rotation.yaw
-        rad = degree * np.pi / 180
-
-        tag = int(time.time() * 1000)
-        file = "{}/data_{}.csv".format(set_dir, tag)
-        su.export_lidar_mpc_csv(file, points, loc_x, loc_y, rad, ms, False, path, cy)
-
-        lidar_data = np.array(points[:, :2])
-        lidar_data *= min(hud) / (2.0 * float(lidar_range))
-        lidar_data += (0.5 * hud[0], 0.5 * hud[1])
-        lidar_data = np.fabs(lidar_data)  # pylint: disable=E1111
-        lidar_data = lidar_data.astype(np.int32)
-        lidar_data = np.reshape(lidar_data, (-1, 2))
-
-        lidar_img_size = (hud[0], hud[1], 3)
-        lidar_img = np.zeros((lidar_img_size), dtype=np.uint8)
-        lidar_img[tuple(lidar_data.T)] = (255, 255, 255)
-        # plt.imsave("{}/{}.png".format(set_dir, tag), lidar_img)
-
-        cv2.imshow("lidar cam", lidar_img)
-        cv2.waitKey(1)
-
-    except IndexError as ie:
-        print("Lidar: ", ie)
-
-    except Exception as e:
-        print("Lidar Exception: ", e)
-        pass
-
-
-def strip_data(data, max_r=1, min_r=-1.5):
-    return [item for item in data if max_r > item[2] > min_r]
-
-
-def transform_distance(p1, p2):
-    return p1[0]-p2[0], p1[1]-p2[1]
-
-
-def translate(p, Tx, Ty):
-    px = p[0] + Tx
-    py = p[1] + Ty
-
-    return [px, py]
-
-
-def rotate(x, y, xo, yo, theta):  # rotate x,y around xo,yo by theta (rad)
-    xr = math.cos(theta) * (x - xo) - math.sin(theta) * (y - yo) + xo
-    yr = math.sin(theta) * (x - xo) + math.cos(theta) * (y - yo) + yo
-    return [xr, yr]
-
-
-def lidar_detection(point_cloud, vehicle, path, cys):
-    bx = 2.396
-    by = 1.082
-    tr = [bx, by]
-    tl = [-bx, by]
-    br = [-bx, -by]
-    bl = [bx, -by]
-    bb = np.array([tr, tl, br, bl])
-
-    try:
-        # point cloud
-        points = np.frombuffer(point_cloud.raw_data, dtype=np.dtype('f4'))
-        points = np.reshape(points, (int(points.shape[0] / 4), 4))
-        points = strip_data(points, 1, -1.5)
-        points = np.array([item for item in points if not is_inside_polygon(bb, (item[0], item[1]))])
-
-        # get location information
-        location = vehicle.get_location()
-        loc_x, loc_y = location.x, location.y
-
-        # get transform information
-        degree = vehicle.get_transform().rotation.yaw
-        theta = degree * np.pi / 180
-
-        Tx, Ty = transform_distance([0, 0], [loc_x, loc_y])
-        org = translate([loc_x, loc_y], Tx, Ty)
-
-        path = np.asarray([translate(item, Tx, Ty) for item in path])
-        path = np.asarray([rotate(item[0], item[1], org[0], org[1], -theta) for item in path])
-
-        p1, p2 = [], []
-        for p, cy in zip(path, cys):
-            temp_line = np.array([[p[0], p[1] + by + 0.5], [p[0], p[1] - by - 0.5]])
-            temp_line = np.array([rotate(item[0], item[1], p[0], p[1], cy) for item in temp_line])
-            temp_line = np.array([rotate(item[0], item[1], p[0], p[1], -theta) for item in temp_line])
-            p1.append(temp_line[0])
-            p2.append(temp_line[1])
-
-        p2.reverse()
-        p1.extend(p2)
-        p2 = np.array([[0, 0 + by + 0.5], [bx * 2, 0 + by + 0.5], [bx * 2, 0 - by - 0.5], [0, 0 - by - 0.5]])
-
-        shorten_points = np.array([point for point in points if point[0] > 0])
-
-        in_region1 = [[point[0], point[1]] for point in shorten_points if is_inside_polygon(p1, (point[0], point[1]))]
-        in_region2 = [[point[0], point[1]] for point in shorten_points if is_inside_polygon(p2, (point[0], point[1]))]
-
-        in_region1 = np.array(in_region1)
-        in_region2 = np.array(in_region2)
-
-        if len(in_region1) > 0 or len(in_region2) > 0:
-            print("Detected something")
-            return 1
-        else:
-            return 0
-
-    except Exception as e:
-        pass
-
-
 def game_loop(reload=True, hp=False, cp=False):  # hp: Horizon plot - cp: Course plot
     client = carla.Client('localhost', 2000)
     client.set_timeout(10.0)
 
+    # Using module Global Path Planning to get a predefined course
     course = module_p2.get_course(road_segments_file, dic.course_01)
     course = course[85:]
+
     dl = 1.0  # course tick
     cx, cy, cyaw, ck = get_course(course, dl)
     sp = calc_speed_profile(cx, cy, cyaw, TARGET_SPEED)
@@ -634,8 +507,6 @@ def game_loop(reload=True, hp=False, cp=False):  # hp: Horizon plot - cp: Course
         world.unload_map_layer(carla.MapLayer.Props)
         world.unload_map_layer(carla.MapLayer.StreetLights)
         blueprint_library = world.get_blueprint_library()  # get blueprint library
-
-        carla_intersection = to.load_intersection_data(carla_intersection_csv)
 
         if cp:
             carla_world_plot(world, course)  # Toggle to plot the
@@ -715,6 +586,7 @@ def game_loop(reload=True, hp=False, cp=False):  # hp: Horizon plot - cp: Course
             print("\n== DRIVING LOG =====================================")
             start_time = datetime.now()
             try:
+                # Display speed information
                 ms, kmh = su.speed_estimation(vehicle)
 
                 # mpc
@@ -739,20 +611,24 @@ def game_loop(reload=True, hp=False, cp=False):  # hp: Horizon plot - cp: Course
                 for _ in range(len(sensor_list)):
                     s_frame = sensor_queue.get(True, 1.0)
                     if s_frame[1] == 1:
-                        vsteer, vthrottle, _ = controller.level_one(s_frame[0], camera=False, pp1=True)
+                        # Using E2E controller to get the steer and throttle information
+                        v_steer, v_throttle, _ = controller.level_one(s_frame[0], camera=False, pp1=True)
 
                     elif s_frame[1] == 2:
+                        # Streaming from spectator camera
                         su.live_cam(s_frame[0], dic.cam_spectate_1)
 
                     elif s_frame[1] == 3:
-                        lidar_set_name = "../collected_data/lidar/town02/set_02"
+                        # Save lidar data
+                        # lidar_set_name = "../collected_data/lidar/town02/set_02"
                         # display_lidar(s_frame[0], vehicle, lidar_set_name, dic.lidar['range'], path, cyr)
-                        vbrake = lidar_detection(s_frame[0], vehicle, path, cyr)
-                        vthrottle = 0
-                        print(vbrake)
 
-                print("THROTTLE: {}  - STEER: {} - BRAKE: {}".format(vthrottle, vsteer, vbrake))
-                vehicle.apply_control(carla.VehicleControl(throttle=vthrottle, steer=vsteer, brake=vbrake))
+                        # Lidar detection stopping module
+                        v_brake = module_lidar.lidar_detection(s_frame[0], vehicle, path, cyr)
+                        v_throttle = 0
+
+                print("THROTTLE: {}  - STEER: {} - BRAKE: {}".format(v_throttle, v_steer, v_brake))
+                vehicle.apply_control(carla.VehicleControl(throttle=v_throttle, steer=v_steer, brake=v_brake))
 
                 # Stopping key
                 if keyboard.is_pressed("q"):
