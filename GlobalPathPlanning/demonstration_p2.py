@@ -19,4 +19,4 @@ map_name,\
 
 path = get_random_course(road_segments_file, demo=True, time_analysis=True)
 
-path = get_course(road_segments_file, dic.course_02, demo=True, time_analysis=False)
+# path = get_course(road_segments_file, dic.course_02, demo=True, time_analysis=False)
