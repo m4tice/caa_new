@@ -6,6 +6,8 @@ Repository created for Master Thesis: Autonomous Driving
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_02.gif)
 
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
+
 **Model Predictive Control:**  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_02.gif)
