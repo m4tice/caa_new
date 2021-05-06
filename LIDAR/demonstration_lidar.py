@@ -473,7 +473,7 @@ def game_loop(reload=True, hp=False, cp=False):  # hp: Horizon plot - cp: Course
 
     # Using module Global Path Planning to get a predefined course
     course = module_p2.get_course(road_segments_file, dic.course_01)
-    course = course[85:]
+    # course = course[85:]
 
     dl = 1.0  # course tick
     cx, cy, cyaw, ck = get_course(course, dl)
@@ -625,7 +625,6 @@ def game_loop(reload=True, hp=False, cp=False):  # hp: Horizon plot - cp: Course
 
                         # Lidar detection stopping module
                         v_brake = module_lidar.lidar_detection(s_frame[0], vehicle, path, cyr)
-                        v_throttle = 0
 
                 print("THROTTLE: {}  - STEER: {} - BRAKE: {}".format(v_throttle, v_steer, v_brake))
                 vehicle.apply_control(carla.VehicleControl(throttle=v_throttle, steer=v_steer, brake=v_brake))

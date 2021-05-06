@@ -127,9 +127,10 @@ def rotate(x, y, xo, yo, theta):  # rotate x,y around xo,yo by theta (rad)
     return [xr, yr]
 
 
-def lidar_detection(point_cloud, vehicle, path, cys, throttle):
+def lidar_detection(point_cloud, vehicle, path, cys):
     bx = 2.396
     by = 1.082
+    yd = 0.1
     tr = [bx, by]
     tl = [-bx, by]
     br = [-bx, -by]
@@ -159,7 +160,7 @@ def lidar_detection(point_cloud, vehicle, path, cys, throttle):
 
         p1, p2 = [], []
         for p, cy in zip(path, cys):
-            temp_line = np.array([[p[0], p[1] + by + 0.5], [p[0], p[1] - by - 0.5]])
+            temp_line = np.array([[p[0], p[1] + by + yd], [p[0], p[1] - by - yd]])
             temp_line = np.array([rotate(item[0], item[1], p[0], p[1], cy) for item in temp_line])
             temp_line = np.array([rotate(item[0], item[1], p[0], p[1], -theta) for item in temp_line])
             p1.append(temp_line[0])
@@ -167,7 +168,7 @@ def lidar_detection(point_cloud, vehicle, path, cys, throttle):
 
         p2.reverse()
         p1.extend(p2)
-        p2 = [[0, 0 + by + 0.5], [bx * 2, 0 + by + 0.5], [bx * 2, 0 - by - 0.5], [0, 0 - by - 0.5]]
+        p2 = [[0, 0 + by + yd], [bx * 2, 0 + by + yd], [bx * 2, 0 - by - yd], [0, 0 - by - yd]]
 
         shorten_points = np.array([point for point in points if point[0] > 0])
 
@@ -176,11 +177,9 @@ def lidar_detection(point_cloud, vehicle, path, cys, throttle):
 
         if len(in_region1) > 0 or len(in_region2) > 0:
             print("Lidar module: Obstacle detected!")
-            brake, throttle = 1, 0
-            return brake, throttle
+            return 1
         else:
-            brake = 0
-            return brake, throttle
+            return 0
 
     except Exception as e:
         pass

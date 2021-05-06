@@ -211,7 +211,7 @@ def get_random_course(road_segments_file, noc=4, demo=False, time_analysis=False
 
     # Find shortest paths to the points that are closest to the defined random destination
     closest_points = diss[:noc, 0]
-    print(closest_points)
+
     paths = []
     for point in closest_points:
         destination = get_node_name(node_dict, point)

@@ -98,6 +98,7 @@ def game_loop(reload=True):
                                    carla_int_csv=carla_intersection_csv,
                                    gps_int_csv=gps_intersection_csv,
                                    cam_set=dic.cam_rgb_set_2)
+        v_steer, v_throttle, v_brake = 0, 0, 0
 
         # == Camera: RGB
         cam_rgb = su.spawn_camera_rgb(world, blueprint_library, vehicle, dic.cam_rgb_set_2)
@@ -117,9 +118,11 @@ def game_loop(reload=True):
                 for _ in range(len(sensor_list)):
                     s_frame = sensor_queue.get(True, 1.0)
                     if s_frame[1] == 1:
-                        controller.level_one(s_frame[0], camera=True, pp1=True)
+                        v_steer, v_throttle, v_brake = controller.level_one(s_frame[0], camera=True, pp1=True)
                     else:
                         su.live_cam(s_frame[0], dic.cam_spectate_1)
+
+                vehicle.apply_control(carla.VehicleControl(throttle=v_throttle, steer=v_steer, brake=v_brake))
 
                 # Stopping key
                 if keyboard.is_pressed("q"):

@@ -57,7 +57,7 @@ map_name, \
 # == Model Predictive Controller =======================================================================================
 NX = 4  # x = x, y, v, yaw
 NU = 2  # a = [accel, steer]
-T = 4  # horizon length
+T = 6  # horizon length
 
 # mpc parameters
 R = np.diag([0.01, 0.01])  # input cost matrix
@@ -562,7 +562,7 @@ def game_loop(reload=True, hp=False, cp=False):  # hp: Horizon plot - cp: Course
                 path = np.asarray(path)
 
                 if hp:
-                    carla_world_plot(world, path, lt=0.1)
+                    carla_world_plot(world, path, lt=1)
 
                 x0 = [state.x, state.y, state.v, state.yaw]  # current state
                 oa, odelta, ox, oy, oyaw, ov = iterative_linear_mpc_control(xref, x0, dref, oa, odelta)
