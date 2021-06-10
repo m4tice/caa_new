@@ -38,16 +38,16 @@ After finishing CARLA installation, clone this repo and place it as follows:
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
-# Credits
+**Credits**
 End-to-end learning: [naokishibuya](https://github.com/naokishibuya).  
 
 
-**Model Predictive Control**  
+# MODEL PREDICTIVE CONTROL  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_02.gif)
 
-**GNSS for switching controller**  
+# GNSS FOR SWITCHING CONTROLLER  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/gnss_01.gif)
 
-**Lidar for obstacle detection and stop**  
+# LIDAR FOR OBSTACLE DETECTION AND STOP    
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/lidar_01.gif)
