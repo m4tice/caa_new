@@ -31,13 +31,9 @@ After finishing CARLA installation, clone this repo and place it as follows:
     └── ...
 
 
-**End to end learning for self-driving car**  
+**END TO END LEARNING FOR AUTONOMOUS DRIVING**  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_02.gif)
-
-# Credits
-End-to-end learning: [naokishibuya](https://github.com/naokishibuya).  
-Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).
 
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
