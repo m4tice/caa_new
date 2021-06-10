@@ -24,7 +24,7 @@ After finishing CARLA installation, clone this repo and place it as follows:
     .
     ├── ...
     ├── PythonAPI
-    │   ├── adb          
+    │   ├── caa_new <<===          
     │   ├── carla             
     │   ├── examples                      
     │   └── util                
