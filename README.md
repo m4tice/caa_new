@@ -31,7 +31,7 @@ After finishing CARLA installation, clone this repo and place it as follows:
     └── ...
 
 
-# END TO END LEARNING FOR AUTONOMOUS DRIVING  
+# End-to-end Deep Learning for Autonomous Driving  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_02.gif)
 
@@ -42,15 +42,15 @@ Camera input of the network
 * End-to-end Deep Learning for Self-Driving Cars in Udacity: [naokishibuya](https://github.com/naokishibuya).  
 * End-to-End Deep Learning for Self-Driving Cars: [NVIDIA](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/)  
 
-# MODEL PREDICTIVE CONTROL  
+# Model Predictive Control  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_02.gif)
 
 **Credits**  
 * Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
 
-# GNSS FOR SWITCHING CONTROLLER  
+# GNSS for controller switching  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/gnss_01.gif)
 
-# LIDAR FOR OBSTACLE DETECTION AND STOP    
+# LiDAR for obstacle detection and stop    
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/lidar_01.gif)
