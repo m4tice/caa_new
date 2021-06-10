@@ -39,7 +39,7 @@ Camera input of the network
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
 **Credits**  
-End-to-end learning: [naokishibuya](https://github.com/naokishibuya).  
+End-to-end learning for self-driving car in Udacity: [naokishibuya](https://github.com/naokishibuya).  
 
 
 # MODEL PREDICTIVE CONTROL  
