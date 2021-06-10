@@ -38,7 +38,7 @@ After finishing CARLA installation, clone this repo and place it as follows:
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
-**Credits**
+**Credits**  
 End-to-end learning: [naokishibuya](https://github.com/naokishibuya).  
 
 
