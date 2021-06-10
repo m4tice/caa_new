@@ -2,6 +2,35 @@
 
 Repository created for Master Thesis: Autonomous Driving
 
+**SOFTWARES and FRAMEWORKS:**  
+* [CARLA](https://github.com/carla-simulator/carla) > 0.9.10  
+* [Conda](https://docs.conda.io/en/latest/)  
+* Python
+
+**IMPORTANT REQUIREMENTS:**  
+* Python > 3.7.x  
+* Tensorflow > 2.1.x  
+
+**INSTRUCTIONS:**  
+Install the Conda environment, which contains the necessary libraries by running the following commands:  
+
+```
+conda env create -f environment.yml
+conda activate tf_gpu
+```
+
+After finishing CARLA installation, clone this repo and place it as follows:  
+
+    .
+    ├── ...
+    ├── PythonAPI
+    │   ├── adb          
+    │   ├── carla             
+    │   ├── examples                      
+    │   └── util                
+    └── ...
+
+
 # End to end learning for self-driving car:  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_02.gif)
