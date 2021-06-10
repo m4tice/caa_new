@@ -39,15 +39,15 @@ Camera input of the network
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
 **Credits**  
-End-to-end Deep Learning for Self-Driving Cars in Udacity: [naokishibuya](https://github.com/naokishibuya).  
-End-to-End Deep Learning for Self-Driving Cars: [NVIDIA](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/)  
+* End-to-end Deep Learning for Self-Driving Cars in Udacity: [naokishibuya](https://github.com/naokishibuya).  
+* End-to-End Deep Learning for Self-Driving Cars: [NVIDIA](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/)  
 
 # MODEL PREDICTIVE CONTROL  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_02.gif)
 
 **Credits**  
-Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
+* Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
 
 # GNSS FOR SWITCHING CONTROLLER  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/gnss_01.gif)
