@@ -31,19 +31,23 @@ After finishing CARLA installation, clone this repo and place it as follows:
     └── ...
 
 
-# End to end learning for self-driving car:  
+**End to end learning for self-driving car**  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_02.gif)
+
+# Credits
+End-to-end learning: [naokishibuya](https://github.com/naokishibuya).  
+Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).
 
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
-# Model Predictive Control:  
+**Model Predictive Control**  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_02.gif)
 
-# GNSS for switching controller:  
+**GNSS for switching controller**  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/gnss_01.gif)
 
-# Lidar for obstacle detection and stop:  
+**Lidar for obstacle detection and stop**  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/lidar_01.gif)
