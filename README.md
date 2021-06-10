@@ -31,7 +31,7 @@ After finishing CARLA installation, clone this repo and place it as follows:
     └── ...
 
 
-**END TO END LEARNING FOR AUTONOMOUS DRIVING**  
+# END TO END LEARNING FOR AUTONOMOUS DRIVING  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_02.gif)
 
