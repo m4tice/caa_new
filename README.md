@@ -39,7 +39,7 @@ Camera input of the network
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
 **Credits**  
-* End-to-end Deep Learning for Self-Driving Cars in Udacity: [naokishibuya](https://github.com/naokishibuya).  
+* End-to-end Deep Learning for Self-Driving Cars in Udacity: [naokishibuya](https://github.com/naokishibuya)  
 * End-to-End Deep Learning for Self-Driving Cars: [NVIDIA](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/)  
 
 # Model Predictive Control  
