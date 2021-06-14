@@ -80,9 +80,12 @@ During the training, the process of augmentation applied on to the images are pe
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/shadow_sample.png)  
 * `random_brightness` Randomly adjust the brightness of the image, which imitates the brightness of the sun, lamps, etc.  
 
+**TRAINING RESULT**  
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/training_result.png)  
+
 **FLIES INCLUDED - `E2E`**   
 * `module_e2e.py` The file includes the functions used for the demonstration  
-* `demonstration_e2e.py` Run this file to see the demonstration of the E2E approach 
+* `demonstration_e2e.py` Run this file to see the demonstration of the E2E approach  
 
 **CREDITS**  
 * End-to-end Deep Learning for Self-Driving Cars in Udacity: [naokishibuya](https://github.com/naokishibuya)  
