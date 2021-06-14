@@ -93,6 +93,8 @@ The training start with the following parameters:
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_02.png)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_03.png)  
 
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_03.png" width="50%">
+
 **FLIES INCLUDED - `E2E`**   
 * `module_e2e.py` The file includes the functions used for the demonstration  
 * `demonstration_e2e.py` Run this file to see the demonstration of the E2E approach  
