@@ -46,6 +46,11 @@ The first step is to  set up a camera at the front of the vehicle to capture the
 The network used for this project is the [NVIDIA](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/) model, which has been proven to work.  
 This approach requires a huge amount of data, which is why data augmentation is needed to generate fake data with meaningful label.  
 
+Camera view of the road
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/recorded_01.png)
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/recorded_02.png)
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/recorded_03.png)
+
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
