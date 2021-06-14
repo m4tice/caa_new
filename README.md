@@ -89,9 +89,9 @@ The training start with the following parameters:
 * Learning rate: 1.0e-4  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/training_result.png)  
 
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_01.png" width="50%">
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_02.png" width="50%">
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_03.png" width="50%">  
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_01.png" width="20%">
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_02.png" width="20%">
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_03.png" width="20%">  
 
 **FLIES INCLUDED - `E2E`**   
 * `module_e2e.py` The file includes the functions used for the demonstration  
