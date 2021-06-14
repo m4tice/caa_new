@@ -104,6 +104,9 @@ The training start with the following parameters:
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_02.gif)
 
+**OVERVIEW**  
+The MPC controller control the throttle and steering of the vehicle based on a linearised model of the vehicle.  
+
 **CREDITS**  
 * Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
 
