@@ -44,7 +44,7 @@ This approach requires a huge amount of data, which is why data augmentation is 
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
-**Files included**  
+**Files included in `E2E`**   
 * `module_e2e.py` The file includes the functions used for the demonstration  
 * `demonstration_e2e.py` Run this file to see the demonstration of the E2E approach 
 
