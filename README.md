@@ -74,10 +74,10 @@ During the training, the process of augmentation applied on to the images are pe
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/translated_sample.PNG)  
 
 * `random_flip` Randomly flip the image and change the sign of the steering value as positive of negative responsively.  
-![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/flipped_sample.PNG)  
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/flipped_sample.png)  
 
 * `random_shadow` Randomly create a random region of darkness, which imitates the shadow in real life. This helps the model to be more generalised.  
-![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/shadow_sample.PNG)  
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/shadow_sample.png)  
 * `random_brightness` Randomly adjust the brightness of the image, which imitates the brightness of the sun, lamps, etc.  
 
 **FLIES INCLUDED - `E2E`**   
