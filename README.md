@@ -35,6 +35,12 @@ After finishing CARLA installation, clone this repo and place it as follows:
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_01.gif)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_02.gif)
 
+The problem of this part is a supervised regression problem, which relates to the car steering angles and the road images in front of a car.
+
+The first step is to  set up a camera at the front of the vehicle to capture the road images and record the steering angles at the same time. The name of the image and its corresponding steering angle are viewed as feature and label and are put in a csv file.  
+The network used for this project is the [NVIDIA](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/) model, which has been proven to work.  
+This approach requires a huge amount of data, which is why data augmentation is needed to generate fake data with meaningful label.
+
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
