@@ -38,8 +38,8 @@ After finishing CARLA installation, clone this repo and place it as follows:
 **Overview**  
 The problem of this part is a supervised regression problem, which relates to the car steering angles and the road images in front of a car. The complete pipeline includes three mainphases:  
 * Data collection  
-* Train  
-* Control  
+* Training  
+* Controlling  
 
 **Data collection**  
 The first step is to  set up a camera at the front of the vehicle to capture the road images and record the steering angles at the same time. The name of the image and its corresponding steering angle are viewed as feature and label and are put in a csv file.  
@@ -48,6 +48,21 @@ This approach requires a huge amount of data, which is why data augmentation is 
 
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
+
+**Training**
+The re-designed model is based on the work of Mister [naokishibuya](https://github.com/naokishibuya/car-behavioral-cloning). The architecture of the model is as follows:  
+* Image normalization  
+* Convolution: 5x5, filter: 24, strides: 2x2, activation: ELU  
+* Convolution: 5x5, filter: 36, strides: 2x2, activation: ELU  
+* Convolution: 5x5, filter: 48, strides: 2x2, activation: ELU  
+* Convolution: 3x3, filter: 64, strides: 1x1, activation: ELU  
+* Convolution: 3x3, filter: 64, strides: 1x1, activation: ELU  
+* Drop out (0.5)  
+* Fully connected: neurons: 100, activation: ELU  
+* Fully connected: neurons: 50, activation: ELU  
+* Fully connected: neurons: 10, activation: ELU  
+* Fully connected: neurons: 1 (output)  
+
 
 **Files included in `E2E`**   
 * `module_e2e.py` The file includes the functions used for the demonstration  
