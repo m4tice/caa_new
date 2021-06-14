@@ -44,6 +44,10 @@ This approach requires a huge amount of data, which is why data augmentation is 
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
 
+**Files included**  
+* `module_e2e.py` The file includes the functions used for the demonstration  
+* `demonstration_e2e.py` Run this file to see the demonstration of the E2E approach 
+
 **Credits**  
 * End-to-end Deep Learning for Self-Driving Cars in Udacity: [naokishibuya](https://github.com/naokishibuya)  
 * End-to-End Deep Learning for Self-Driving Cars: [NVIDIA](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/)  
