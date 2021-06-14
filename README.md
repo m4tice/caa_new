@@ -81,7 +81,17 @@ During the training, the process of augmentation applied on to the images are pe
 * `random_brightness` Randomly adjust the brightness of the image, which imitates the brightness of the sun, lamps, etc.  
 
 **TRAINING RESULT**  
+The training start with the following parameters:  
+* Number of samples: 12000  
+* EPOCHS: 50  
+* Step per epoch: 10000  
+* Batch size: 40  
+* Learning rate: 1.0e-4  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/training_result.png)  
+
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_01.png)
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_02.png)
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_test_03.png)  
 
 **FLIES INCLUDED - `E2E`**   
 * `module_e2e.py` The file includes the functions used for the demonstration  
