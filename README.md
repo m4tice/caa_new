@@ -73,12 +73,12 @@ During the training, the process of augmentation applied on to the images are pe
 * `random_translation` Translated the image randomly and compute the new steering angle corresponding to the movement of the image on the x-axis.
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/translated_sample.PNG)  
 
-* `random_flip` Randomly flip the image and change the sign of the steering value as positive of negative responsively.
+* `random_flip` Randomly flip the image and change the sign of the steering value as positive of negative responsively.  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/flipped_sample.PNG)  
 
-* `random_shadow` Randomly create a random region of darkness, which imitates the shadow in real life. This helps the model to be more generalised.
+* `random_shadow` Randomly create a random region of darkness, which imitates the shadow in real life. This helps the model to be more generalised.  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/shadow_sample.PNG)  
-* `random_brightness` Randomly adjust the brightness of the image, which imitates the brightness of the sun, lamps, etc.
+* `random_brightness` Randomly adjust the brightness of the image, which imitates the brightness of the sun, lamps, etc.  
 
 **FLIES INCLUDED - `E2E`**   
 * `module_e2e.py` The file includes the functions used for the demonstration  
