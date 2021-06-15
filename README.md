@@ -107,11 +107,19 @@ The training start with the following parameters:
 **OVERVIEW**  
 The MPC controller control the throttle and steering of the vehicle based on a linearised model of the vehicle. The basic idea is that a reference path is provided and the goal of the controller is find a path the has the smallest cost difference comparing with the reference path. This is done by generating all the possible paths using the throttle and steering applied on the linearised model to predict the next positions of the vehicle with a certain amount of time step. The part is based on the work of Mister [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
 
-State vector of the vehicle model:  
+State vector of the vehicle model includes xy position, velocity and yaw angle.    
 <img src="https://render.githubusercontent.com/render/math?math=z=[x, y, v, \phi]">  
 
-Input vector of the vehicle model:  
+Input vector of the vehicle model includes acceleration and steering.    
 <img src="https://render.githubusercontent.com/render/math?math=z=[a, \delta]">  
+
+State matrix:  
+<img src="https://render.githubusercontent.com/render/math?math="\begin{bmatrix} \n",
+    "1 & 0 & cos(\bar{\phi})dt & -\bar{v}sin(\bar{\phi})dt\\\\\n",
+    "0 & 1 & sin(\bar{\phi})dt & \bar{v}cos(\bar{\phi})dt \\\\\n",
+    "0 & 0 & 1 & 0 \\\\\n",
+    "0 & 0 &\frac{tan(\bar{\delta})}{L}dt & 1 \\\\\n",
+    "\end{bmatrix}\n"">  
 
 **CREDITS**  
 * Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
