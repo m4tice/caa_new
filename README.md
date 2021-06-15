@@ -114,10 +114,10 @@ Input vector of the vehicle model includes acceleration and steering.
 <img src="https://render.githubusercontent.com/render/math?math=z=[a, \delta]">  
 
 State matrix:  
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/state_matrix.png" width="60%">  
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/state_matrix.png" width="40%">  
 
 Input matrix:  
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/input_matrix.PNG" width="60%">  
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/input_matrix.PNG" width="40%">  
 
 **CREDITS**  
 * Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
