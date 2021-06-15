@@ -117,7 +117,7 @@ State matrix:
 <img src="https://github.com/m4tice/caa_new/blob/main/assets/state_matrix.png" width="60%">  
 
 Input matrix:  
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/input_matrix.png" width="60%">  
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/input_matrix.PNG" width="60%">  
 
 **CREDITS**  
 * Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
