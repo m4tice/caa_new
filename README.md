@@ -105,7 +105,9 @@ The training start with the following parameters:
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/mpc_02.gif)
 
 **OVERVIEW**  
-The MPC controller control the throttle and steering of the vehicle based on a linearised model of the vehicle.  
+The MPC controller control the throttle and steering of the vehicle based on a linearised model of the vehicle. The basic idea is that a reference path is provided and the goal of the controller is find a path the has the smallest cost difference comparing with the reference path. This is done by generating all the possible paths using the throttle and steering applied on the linearised model to predict the next positions of the vehicle with a certain amount of time step. The part is based on the work of Mister [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).
+
+
 
 **CREDITS**  
 * Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
