@@ -49,7 +49,7 @@ This approach requires a huge amount of data, which is why data augmentation is 
 Camera view of the road  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/recorded_01.png)
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/recorded_02.png)
-![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/recorded_03.png)
+![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/recorded_03.png)  
 
 Camera input of the network  
 ![Alt text](https://github.com/m4tice/caa_new/blob/main/assets/e2e_input.gif)  
