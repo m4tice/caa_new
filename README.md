@@ -120,8 +120,8 @@ Input matrix:
 <img src="https://github.com/m4tice/caa_new/blob/main/assets/input_matrix.PNG" width="40%">  
 
 **RESULTS**  
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/mpc_loc_01.png" width="40%">  
-<img src="https://github.com/m4tice/caa_new/blob/main/assets/mpc_loc_02.png" width="40%">  
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/mpc_loc_01.png" width="60%">  
+<img src="https://github.com/m4tice/caa_new/blob/main/assets/mpc_loc_02.png" width="60%">  
 
 **CREDITS**  
 * Model Predictive Control: [AtsushiSakai](https://github.com/AtsushiSakai/PythonRobotics).  
